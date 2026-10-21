@@ -1,0 +1,9 @@
+# Terraform - archivos generados y sensibles
+terraform1/.terraform/
+terraform1/terraform.tfstate
+terraform1/terraform.tfstate.backup
+terraform1/terraform.tfvars
+terraform1/prueba.ter
+
+# Vagrant - estado local de las máquinas
+vagrant/.vagrant/
