@@ -1,9 +1,23 @@
-# Terraform - archivos generados y sensibles
-terraform1/.terraform/
-terraform1/terraform.tfstate
-terraform1/terraform.tfstate.backup
-terraform1/terraform.tfvars
-terraform1/prueba.ter
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+*.tfplan
+*.ter
 
-# Vagrant - estado local de las máquinas
-vagrant/.vagrant/
+# Vagrant
+**/.vagrant/
+**/Vagrantfile.original
+
+# Ansible
+*.retry
+
+# Claves y credenciales
+*.pem
+*.key
+
+# Temporales
+*~
+.DS_Store
