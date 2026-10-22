@@ -1,0 +1,41 @@
+---
+- name: Configurar servidores WEB2 y WEB3
+  hosts: web
+  become: true
+
+  tasks:
+    - name: Crear usuario SergioOrtega
+      ansible.builtin.user:
+        name: SergioOrtega
+        state: present
+        create_home: true
+
+    - name: Desinstalar apache2
+      ansible.builtin.apt:
+        name: apache2
+        state: absent
+        purge: true
+        update_cache: true
+
+    - name: Instalar nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+
+    - name: Asegurar que nginx está arrancado y habilitado
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+
+    - name: Crear directorio /var/www/html/app
+      ansible.builtin.file:
+        path: /var/www/html/app
+        state: directory
+        mode: '0755'
+
+    - name: Copiar ejemplo.html
+      ansible.builtin.copy:
+        src: ejemplo.html
+        dest: /var/www/html/app/ejemplo.html
+        mode: '0644'
